@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра бродилка</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game-wrapper">
+
+        <header class="game-header">
+            <h1>Игра бродилка</h1>
+            <p>Брось кубик и начни игру</p>
+        </header>
+
+        <div class="game-main">
+            <div class="left">
+                <div class="left-title">Выбери фигурку</div>
+                <div class="figures">
+                    <div class="drop-zone">
+                        <div class="card" draggable="true" id="fig1">
+                            <img src="pusheen.jpg" alt="Фигурка 1">
+                        </div>
+                    </div>
+                    <div class="drop-zone">
+                        <div class="card" draggable="true" id="fig2">
+                            <img src="hamster3.jpg" alt="Фигурка 2">
+                        </div>
+                    </div>
+                    <div class="drop-zone">
+                        <div class="card" draggable="true" id="fig3">
+                            <img src="pin.jpg" alt="Фигурка 3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dice" id="dice">6</div>
+
+            <div class="right">
+                <div class="drop-zone has-event" data-msg="Это начало!"><span class="label">СТАРТ</span></div>
+                <div class="drop-zone"></div>
+                <div class="drop-zone"></div>
+                <div class="drop-zone has-event" data-msg="Удача! Пройдите на 3 поля вперед!"></div>
+                <div class="drop-zone"></div>
+                <div class="drop-zone has-event" data-msg="Неудача! Вернитесь на 3 поля назад!"></div>
+                <div class="drop-zone"></div>
+                <div class="drop-zone"></div>
+                <div class="drop-zone has-event" data-msg="Неудача! Вернитесь на старт!"></div>
+                <div class="drop-zone"></div>
+                <div class="drop-zone"></div>
+                <div class="drop-zone"></div>
+                <div class="drop-zone"></div>
+                <div class="drop-zone"></div>
+                <div class="drop-zone has-event" data-msg="ПОБЕДА!"><span class="label">ФИНИШ</span></div>
+            </div>
+        </div>
+
+        <div id="messageBox">Брось фигурку на поле</div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>

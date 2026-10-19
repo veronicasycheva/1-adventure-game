@@ -1,0 +1,361 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    padding: 20px;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('back.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.game-header {
+    text-align: center;
+}
+
+.game-header h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #1b0505;
+    letter-spacing: 1px;
+}
+
+.game-header p {
+    margin: 6px 0 0;
+    font-size: 16px;
+    color:#1b0505;
+}
+
+.game-main {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 30px;
+    align-items: center;
+    justify-items: center;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.left-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2b2b52;
+}
+
+.figures {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.left .drop-zone {
+    border: none;
+    background: transparent;
+    width: 90px;
+    height: 90px;
+}
+
+.dice {
+    width: 90px;
+    height: 90px;
+    border: 3px solid #254bf3;
+    border-radius: 14px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: bold;
+    color: #254bf3;
+    box-shadow: 0 6px 0 #bbb, 0 8px 14px rgba(0, 0, 0, 0.15);
+    user-select: none;
+}
+
+.dice:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #bbb, 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.right {
+    display: grid;
+    grid-template-columns: repeat(6, 90px);
+    gap: 12px;
+}
+
+.drop-zone {
+    width: 90px;
+    height: 90px;
+    padding: 0 6px;
+    position: relative;
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #ffffff;
+    flex-shrink: 0;
+}
+
+.right .drop-zone:nth-child(4) {
+    grid-column: 4;
+}
+
+.right .drop-zone:nth-child(5) {
+    grid-column: 4;
+    grid-row: 2;
+}
+
+.right .drop-zone:nth-child(6) {
+    grid-column: 4;
+    grid-row: 3;
+}
+
+.right .drop-zone:nth-child(7) {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.right .drop-zone:nth-child(8) {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.right .drop-zone:nth-child(9) {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.right .drop-zone:nth-child(10) {
+    grid-column: 2;
+    grid-row: 5;
+}
+
+.right .drop-zone:nth-child(11) {
+    grid-column: 3;
+    grid-row: 5;
+}
+
+.right .drop-zone:nth-child(12) {
+    grid-column: 4;
+    grid-row: 5;
+}
+
+.right .drop-zone:nth-child(13) {
+    grid-column: 5;
+    grid-row: 5;
+}
+
+.right .drop-zone:nth-child(14) {
+    grid-column: 6;
+    grid-row: 5;
+}
+
+.right .drop-zone:nth-child(15) {
+    grid-column: 6;
+    grid-row: 4;
+}
+
+.drop-zone.over {
+    background: #bb1f3c;
+}
+
+.card {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: grab;
+    touch-action: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.card:active {
+    cursor: grabbing;
+    opacity: 0.5;
+}
+
+.c1 {
+    background: #5947c2;
+}
+
+.c2 {
+    background: #c24799;
+}
+
+.c3 {
+    background: #47b0c2;
+}
+
+.label {
+    position: absolute;
+    top: -22px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #50ffff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+#messageBox {
+    margin-top: 8px;
+    width: 300px;
+    min-height: 80px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background: #fff;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.has-event {
+    border-color: #254bf3;
+    border-width: 3px;
+}
+
+/*адаптив   */
+@media (max-width: 900px) {
+    body {
+        align-items: flex-start;
+        padding: 12px;
+    }
+
+    .game-wrapper {
+        gap: 16px;
+        width: 100%;
+    }
+
+    .game-header h1 {
+        font-size: 24px;
+    }
+
+    .game-header p {
+        font-size: 14px;
+    }
+
+    .game-main {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .left .drop-zone {
+        width: 56px;
+        height: 56px;
+    }
+
+    .figures {
+        gap: 8px;
+    }
+
+    .dice {
+        width: 56px;
+        height: 56px;
+        font-size: 26px;
+    }
+
+    .card {
+        width: 50px;
+        height: 50px;
+    }
+
+    .right {
+        grid-template-columns: repeat(6, 56px);
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .drop-zone {
+        width: 56px;
+        height: 56px;
+        padding: 0 4px;
+    }
+
+    #messageBox {
+        width: 100%;
+        max-width: 320px;
+        min-height: 60px;
+        font-size: 14px;
+    }
+
+    .label {
+        font-size: 10px;
+        top: -16px;
+    }
+}
+
+@media (max-width: 420px) {
+    .left .drop-zone {
+        width: 46px;
+        height: 46px;
+    }
+
+    .figures {
+        gap: 6px;
+    }
+
+    .dice {
+        width: 46px;
+        height: 46px;
+        font-size: 22px;
+    }
+
+    .card {
+        width: 24px;
+        height: 24px;
+    }
+
+    .right {
+        grid-template-columns: repeat(6, 46px);
+        gap: 6px;
+    }
+
+    .drop-zone {
+        width: 46px;
+        height: 46px;
+        padding: 0 3px;
+    }
+}
